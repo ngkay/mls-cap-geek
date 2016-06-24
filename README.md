@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HackerYou Starter Theme
 
 This is a simple theme to get you up and running with a new theme in WordPress. 
@@ -18,3 +19,6 @@ gulp.task('bs', function() {
 ```
 
 
+=======
+# mls-cap-geek
+>>>>>>> 8e4551e4cc2151e57b66d1fe484400eb8632e59f
