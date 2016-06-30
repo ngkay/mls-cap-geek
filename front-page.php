@@ -12,7 +12,7 @@
 
 
 <body <?php body_class(); ?>>
-<header class="hero-header" style="background-image: url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>);">
+<header class="hero-header" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>); background-size: cover;">
 	<div class="wrapper">
 		<nav class="hero-nav">
 			<div class="logo">
@@ -47,7 +47,9 @@
 	<nav class="teams-nav">
 		<div class="wrapper">
 			<div class="site-name">
-				<p>MLS Cap Geek</p>
+				<h3><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+					<?php bloginfo( 'name' ); ?>
+				</a></h3>
 			</div>
 			<div class="nav-team-select">
 				<?php if(have_rows('logos')): ?>
@@ -66,13 +68,12 @@
 			</div>
 		</div>
 	</nav>
-	<header class="team-info-hero">
+	<header class="team-info-hero" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $teamBg = get_field('team_bg'); echo $teamBg['url']; ?>); background-size: cover;">
 		<div class="wrapper">
 			<div class="team-info">
 				<div class="team-name">
-					<!-- <div class="team-emblem">
-						<img src="2.gif" alt="">
-					</div> -->
+					<div class="team-emblem">
+					</div>
 					<h1>Toronto FC</h1>
 				</div>
 				<div class="team-total-salary">
@@ -97,14 +98,19 @@
 		</div>
 	</header>
 	<div class="wrapper">
-		<h2>Players Information</h2>
-		<table id='playersTable'>
-		</table>
+	<div class="main">
+		<div class="left">
+			<h2>Players Information</h2>
+			<table id='playersTable'></table>
+			<h2>Team Standing</h2>
+			<table id='teamsStandingTable'>
+			</table>
+		</div>
+		<div class="right"></div>
+	</div>
+		
 		<!-- <h2>Team Information</h2>
 		<table id='teamsTable'>
-		</table> -->
-		<!-- <h2>Team Standing</h2>
-		<table id='teamsStandingTable'>
 		</table> -->
 	</div>
 </div>
