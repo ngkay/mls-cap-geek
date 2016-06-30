@@ -242,15 +242,15 @@ mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
 
 	//printing all info unto the page: first labels, then values
 	var teamSelectedOutput = $('<h1>').append(userSelection);
-	$('.team-name').append(teamSelectedOutput);
+	$('.team-name h1').replaceWith(teamSelectedOutput);
 	var totalSalaryMassPrint = $('<h2>').append('$' + totalSalaryMassThousands);
-	$('.team-total-salary').append(totalSalaryMassPrint);
+	$('.team-total-salary h2').replaceWith(totalSalaryMassPrint);
 	var salaryMassPrint = $('<h2>').append('$' + salaryMassThousands);
-	$('.team-cap-hit').append(salaryMassPrint);
+	$('.team-cap-hit h2').replaceWith(salaryMassPrint);
 	var spaceOnCapPrint = $('<h2>').append('$' + spaceOnCapThousands);
-	$('.team-cap-space').append(spaceOnCapPrint);
+	$('.team-cap-space h2').replaceWith(spaceOnCapPrint);
 	var dpCountPrint = $('<h2>').append(dpCounter);
-	$('.team-dps').append(dpCountPrint);
+	$('.team-dps h2').replaceWith(dpCountPrint);
 
 	// $('.team-info-screen').slideDown(800);
 

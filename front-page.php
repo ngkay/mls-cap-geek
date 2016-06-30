@@ -12,7 +12,7 @@
 
 
 <body <?php body_class(); ?>>
-<header class="hero-header">
+<header class="hero-header" style="background-image: url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>);">
 	<div class="wrapper">
 		<nav class="hero-nav">
 			<div class="logo">
@@ -49,7 +49,21 @@
 			<div class="site-name">
 				<p>MLS Cap Geek</p>
 			</div>
-			<div class="team-icons"></div>
+			<div class="nav-team-select">
+				<?php if(have_rows('logos')): ?>
+					<?php while(have_rows('logos')):the_row(); 
+						$teamLogo = get_sub_field('logo_img');
+						$teamName = get_sub_field('team_name');
+					?>
+					<div class="nav-team">
+						<input type="radio" name="team" id="<?php echo $teamName; ?>" value="<?php echo $teamName; ?>">
+						<label for="<?php echo $teamName; ?>">
+							<img src="<?php echo $teamLogo['url']; ?>" alt="<?php echo $teamName; ?>">
+						</label>
+					</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 	</nav>
 	<header class="team-info-hero">
@@ -58,26 +72,26 @@
 				<div class="team-name">
 					<!-- <div class="team-emblem">
 						<img src="2.gif" alt="">
-					</div>
-					<h1>Toronto FC</h1> -->
+					</div> -->
+					<h1>Toronto FC</h1>
 				</div>
 				<div class="team-total-salary">
 					<h3>Total Team Salary</h3>
-					<!-- <h2>$1,234,567</h2> -->
+					<h2>$1,234,567</h2>
 				</div>
 			</div>
 			<div class="main-team-stats">
 				<div class="team-cap-hit">
 					<h3>Salary Cap Hit*</h3>
-					<!-- <h2>$1,234,567</h2> -->
+					<h2>$1,234,567</h2>
 				</div>
 				<div class="team-cap-space">
 					<h3>Salary Cap Space*</h3>
-					<!-- <h2>$123,456</h2> -->
+					<h2>$123,456</h2>
 				</div>
 				<div class="team-dps">
 					<h3>Designated Players</h3>
-					<!-- <h2>3</h2> -->
+					<h2>3</h2>
 				</div>
 			</div>
 		</div>

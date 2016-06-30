@@ -37,7 +37,8 @@ html {
 	height: 100vh;
 	padding: 25px;
 	position: fixed;
-	background: #F5F5F5;
+	background-size: cover;
+	color: #FFF;
 }
 
 .hero-team-select {
@@ -90,6 +91,31 @@ label {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+}
+
+.nav-team-select {
+	height: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+
+	input[type=radio] {
+		display: none;
+	}
+}
+
+.nav-team {
+	height: 26px;
+	margin-right: 8px;
+
+	img {
+		height: 100%;
+		display: block;
+	}
+
+	&:last-child {
+		margin-right: 0;
 	}
 }
 
