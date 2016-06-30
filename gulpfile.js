@@ -14,7 +14,7 @@ var gulp   = require('gulp'),
 gulp.task('bs', function() {
 	browserSync.init({
 		// if running on windows, change this to http://localhost
-		proxy: 'http://localhost'
+		proxy: 'http://localhost:8888'
 	});
 });
 

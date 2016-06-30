@@ -51,6 +51,8 @@ function hackeryou_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+	wp_enqueue_style('titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');
@@ -63,27 +65,27 @@ function hackeryou_scripts() {
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
   wp_enqueue_script(
-  	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
-  	false, //dependencies
-  	null, //version number
-  	true //load in footer
+	'jquery',
+	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+	false, //dependencies
+	null, //version number
+	true //load in footer
   );
 
   wp_enqueue_script(
-    'plugins', //handle
-    get_template_directory_uri() . '/js/plugins.js', //source
-    false, //dependencies
-    null, // version number
-    true //load in footer
+	'plugins', //handle
+	get_template_directory_uri() . '/js/plugins.js', //source
+	false, //dependencies
+	null, // version number
+	true //load in footer
   );
 
   wp_enqueue_script(
-    'scripts', //handle
-    get_template_directory_uri() . '/js/main.min.js', //source
-    array( 'jquery', 'plugins' ), //dependencies
-    null, // version number
-    true //load in footer
+	'scripts', //handle
+	get_template_directory_uri() . '/js/main.min.js', //source
+	array( 'jquery', 'plugins' ), //dependencies
+	null, // version number
+	true //load in footer
   );
 }
 
@@ -281,3 +283,5 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+add_filter('show_admin_bar', '__return_false');
