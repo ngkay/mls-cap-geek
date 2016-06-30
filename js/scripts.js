@@ -42,12 +42,29 @@ mlsInfo.getData = function(){
 		// console.log(playersInfo)
 		//store information into the main object
 		mlsInfo.playersObject = playersInfo;
-		// console.log(mlsInfo.playersObject);
+		console.log(mlsInfo.playersObject);
 
 		//call a function to sort players into teams arrays
 		mlsInfo.getTeams(playersInfo);
 	});
 };
+
+// mlsInfo.getData = function(){
+// 	$.ajax({
+// 		url:mlsInfo.apiUrl + '/Club' + '/Chicago Fire',
+// 		method:'GET',
+// 		dataType:'json'
+// 	})
+// 	.then(function(playersInfo){
+// 		// console.log(playersInfo)
+// 		//store information into the main object
+// 		mlsInfo.playersObject = playersInfo;
+// 		console.log(mlsInfo.playersObject);
+
+// 		//call a function to sort players into teams arrays
+// 		// mlsInfo.getTeams(playersInfo);
+// 	});
+// };
 
 //function that sorts teams from the player objects
 mlsInfo.getTeams = function(){
