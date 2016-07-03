@@ -176,8 +176,143 @@ label {
 	align-items: center;
 }
 
-.team-cap-hit {
+.main{
+	display:flex;
+}
+
+.left{
+	width:70%;
+	padding:10px;
+}
+
+.right{
+	width:30%;
+	padding:10px;
+
+	.latestPosts,
+	.tagCloud{
+		margin-bottom:30px;
+		padding:10px;
+		box-shadow:5px 5px 5px #c1c1c1;
+	}
+
+	.latestPosts,
+	.teamStandingSidebar{
+		background:#363533;
+		color:white;
+
+		a{
+			color:yellow;
+		}
+	}
+
+	.content-featured-post{
+		display:flex;
+		margin:10px 0;
+	}
+
+	h3{
+		font-size:2.5rem;
+	}
+
+	h4{
+		font-size:1.8rem;
+	}
+
+	h4,
+	h5{
+		margin:0px;
+	}
+
+	.featured-blog-post img{
+		width:75px;
+		height:75px;
+	}
+
+	.featured-blog-post p:nth-of-type(1){
+		margin:0;
+		font-size:12px;
+	}
+
+	.blog-post-info{
+		margin:10px;
+		margin-top:0;
+	}
+
+	.tagCloud{
+		background:#d9d9d9;
+	}
+
+	.tags{
+		margin:10px 0;
+
+		a{
+			color:#666;
+			border:1px solid #666;
+			padding:2px 5px;
+		}
+	}
+
+	.teamStandingSidebar{
+		padding:10px;
+		box-shadow:5px 5px 5px #c1c1c1;
+	}
+
+	#teamsStandingTable{
+		margin-top:0px;
+		margin-bottom:0px;
+	}
+
+	tr{
+		&:hover{
+			background:#4A4947;
+		}
+	}
+
+	td{
+		font-size: 14px;
+		padding:2px;
+		color:white;
+	}
+}
+
+.team-cap-hit,
+.team-cap-space,
+.team-dps{
 	text-align: left;
+
+	sup{
+		margin-left:5px;
+	}
+}
+
+.team-cap-hit-info,
+.team-cap-space-info,
+.team-dps-info{
+	position:relative;
+	background:$yellow;
+	border-radius:50%;
+	padding:2px 8px;
+	color:#000;
+	&:hover:after{
+		display:block;
+	}
+}
+
+.team-cap-hit-info:after,
+.team-cap-space-info:after,
+.team-dps-info:after{
+	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
+	display:none;
+	position:absolute;
+	left: -125px;
+	top: -160px;
+	width:150px;
+	background:#666;
+	padding:5px;
+	text-align:left;
+	color:#fff;
+	font-weight:normal;
 }
 
 .team-cap-space {
@@ -225,11 +360,21 @@ th, td {
 	font-size: 1rem;
 	position: relative;
 	top: -2px;
+	&:hover:after{
+		display:block
+	}
 }
 
-
-
-
-
-
-
+.dp-icon:after{
+	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
+	display:none;
+	position:absolute;
+	left: -125px;
+	top: -140px;
+	width:150px;
+	background:#666;
+	padding:5px;
+	text-align:left;
+	color:#fff;
+	font-size:12px;
+}
