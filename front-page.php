@@ -12,7 +12,7 @@
 
 
 <body <?php body_class(); ?>>
-<header class="hero-header" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>); background-size: cover;">
+<header class="hero-header" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>); background-size: cover; display:none;">
 	<div class="wrapper">
 		<nav class="hero-nav">
 			<div class="logo">
@@ -83,35 +83,67 @@
 			</div>
 			<div class="main-team-stats">
 				<div class="team-cap-hit">
-					<h3>Salary Cap Hit*</h3>
+					<h3>Salary Cap Hit<sup><i class="fa fa-info team-cap-hit-info" aria-hidden="true"></i></sup></h3>
 					<h2>$1,234,567</h2>
 				</div>
 				<div class="team-cap-space">
-					<h3>Salary Cap Space*</h3>
+					<h3>Salary Cap Space<sup><i class="fa fa-info team-cap-space-info" aria-hidden="true"></i></sup></h3>
 					<h2>$123,456</h2>
 				</div>
 				<div class="team-dps">
-					<h3>Designated Players</h3>
+					<h3>Designated Players<sup><i class="fa fa-info team-dps-info" aria-hidden="true"></i></sup></h3>
 					<h2>3</h2>
 				</div>
 			</div>
 		</div>
 	</header>
 	<div class="wrapper">
-	<div class="main">
-		<div class="left">
-			<h2>Players Information</h2>
-			<table id='playersTable'></table>
-			<h2>Team Standing</h2>
-			<table id='teamsStandingTable'>
-			</table>
+		<div class="main">
+			<div id='left' class="left">
+				<h2>Players Information</h2>
+				<table id='playersTable'></table>
+			</div>
+			<div class="right">
+				<div class="latestPosts">
+					<h3>Latest Blog Posts</h3>
+					<?php 
+					query_posts('posts_per_page=2');
+					if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<div class="post" id="post">
+							<article class="featured-blog-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+								<div class="content-featured-post">
+									<?php $image = get_field('featured_img');?>
+									<!-- <pre><?php //print_r($image);?></pre> -->
+									<img src="<?php echo $image['sizes']['square'] ?>">
+									<!-- function that only echos the post's first sentence -->
+									<div class="blog-post-info">
+										<?php the_date('F j, Y', '<h5>', '</h5>'); ?>
+										<h4 class="entry-title">
+											<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+												<?php the_title(); ?>
+											</a>
+										</h4>
+									</div>
+								</div>
+							</article><!-- #post-## -->
+						</div>
+					<?php endwhile; ?><?php wp_reset_query(); /*4*/ ?>
+					<?php endif; ?>
+				</div>
+				<div class="tagCloud">
+					<h3>Tags</h3>
+					<div class="tags">
+						<?php wp_tag_cloud('smallest=12&largest=12') ?>
+					</div>
+				</div>
+				<div class="teamStandingSidebar">
+					<h3>Team Standing</h3>
+					<table id='teamsStandingTable'>
+					</table>
+				</div>
+			</div>
 		</div>
-		<div class="right"></div>
-	</div>
-		
-		<!-- <h2>Team Information</h2>
-		<table id='teamsTable'>
-		</table> -->
 	</div>
 </div>
 
