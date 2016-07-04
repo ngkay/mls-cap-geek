@@ -62,6 +62,11 @@ html {
 	justify-content: center;
 	align-items: center;
 	z-index: 10;
+
+	.wrapper {
+		width: 98%;
+		max-width: 1920px;
+	}
 }
 
 .hero-team-select {
@@ -287,11 +292,10 @@ label {
 	.tagCloud{
 		margin-bottom:25px;
 		padding:15px;
-		// box-shadow:5px 5px 5px #c1c1c1;
 	}
 
 	.latestPosts {
-		background:#363533;
+		background:#333;
 		color:white;
 
 		a {
@@ -349,7 +353,7 @@ label {
 	}
 
 	#teamsStandingTable{
-		margin-top:10px;
+		margin-top:0px;
 		margin-bottom:0px;
 	}
 
@@ -437,10 +441,6 @@ tr {
 		color: #333;
 	}
 
-	&:first-child {
-		font-weight: bold;
-	}
-
 	&:last-child {
 		border-bottom: none;
 	}
@@ -452,6 +452,11 @@ th, td {
 	font-size: 1.4rem;
 	text-align: left;
 	vertical-align: center;
+}
+
+th {
+	background: #FFF;
+	border-bottom: 2px solid $yellow;
 }
 
 .dp-icon {

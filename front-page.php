@@ -161,6 +161,12 @@
 				<div class="teamStandingSidebar">
 					<h3>Team Standings</h3>
 					<table id='teamsStandingTable'>
+						<thead>
+							<tr>
+								<th>Team</th>
+								<th>Team Salary</th>
+							</tr>
+						</thead>
 					</table>
 				</div>
 			</div>
