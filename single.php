@@ -48,8 +48,8 @@
 <div class="main">
   <div class="wrapper">
     <div class="blog-content">
-      <div class="posts singlepost">
-      <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+      <div class="posts">
+          <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
           <div class="featured-img" style="background:url(<?php echo $image['sizes']['square'] ?>); background-size:cover; background-position:center;">';
           <div class="triangle"></div><figcaption id="featured-img"></figcaption></div>';
           <div class='post-information'>
@@ -88,8 +88,6 @@
       </div>
     <?php get_sidebar(); ?>
     </div> <!-- /.content -->
-
-
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
