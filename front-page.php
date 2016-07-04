@@ -101,7 +101,17 @@
 		<div class="main">
 			<div id='left' class="left">
 				<h2>Players Information</h2>
-				<table id='playersTable'></table>
+				<table id='playersTable' class="tablesorter">
+					<thead class='tableHead'>
+						<tr>
+							<th>Player</th>
+							<th>Position</th>
+							<th>Base Salary</th>
+							<th>Compensation</th>
+							<th>Salary Cap Hit</th>
+						</tr>
+					</thead>
+				</table>
 			</div>
 			<div class="right">
 				<div class="latestPosts">
