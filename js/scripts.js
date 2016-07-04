@@ -174,21 +174,21 @@ mlsInfo.printInfo = function(teamSelected){
 
 	console.log(teamSelected)
 
-	$('#playersTable').empty();
+	$('#playersTable tbody').empty();
 
 	var dpIcon = "<div class='dp-icon'>DP</div>";
 	var yDpIcon = "<div class='dp-icon'>YDP</div>";
 
 	//populates label of rows
-	var nameLabel = $('<td>').append('Player');
-	var positionLabel = $('<td>').append('Position');
-	// var clubLabel = $('<td>').append('Club');
-	var baseSalaryLabel = $('<td>').append('Base Salary');
-	var compensationLabel = $('<td>').append('Compensation');
-	var salaryCapHitLabel = $('<td>').append('Salary Cap Hit');
-	// var statusLabel = $('<td>').append('Status');
-	var rowLabel = $('<tr>').append(nameLabel, positionLabel, baseSalaryLabel, compensationLabel, salaryCapHitLabel);
-	$('#playersTable').append(rowLabel);
+	// var nameLabel = $('<th>').append('Player');
+	// var positionLabel = $('<th>').append('Position');
+	// // var clubLabel = $('<td>').append('Club');
+	// var baseSalaryLabel = $('<th>').append('Base Salary');
+	// var compensationLabel = $('<th>').append('Compensation');
+	// var salaryCapHitLabel = $('<th>').append('Salary Cap Hit');
+	// // var statusLabel = $('<td>').append('Status');
+	// var rowLabel = $('<tr>').append(nameLabel, positionLabel, baseSalaryLabel, compensationLabel, salaryCapHitLabel);
+	// $('.tableHead').append(rowLabel);
 
 	//populates player rows
 	for(var i = 0; i < teamSelected.length; i++){
@@ -210,7 +210,13 @@ mlsInfo.printInfo = function(teamSelected){
 		var playersRow = $('<tr>').append(name, position, baseSalary, compensation, salaryCapHit);
 		$('#playersTable').append(playersRow);
 	};
+
+	mlsInfo.tableSorterInit();
 };
+
+mlsInfo.tableSorterInit = function(){
+	$("#playersTable").tablesorter();
+}
 
 //function that populates the team information table
 mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
