@@ -178,7 +178,7 @@ mlsInfo.printInfo = function(teamSelected){
 
 	console.log(teamSelected)
 
-	$('#playersTable').empty().hide();
+	$('#playersTable tbody').empty().hide();
 
 	var dpIcon = "<div class='dp-icon'>DP</div>";
 	var yDpIcon = "<div class='dp-icon'>YDP</div>";
@@ -216,7 +216,7 @@ mlsInfo.printInfo = function(teamSelected){
 	};
 
 	$('#playersTable').fadeIn(600);
-	mlsInfo.tableSorterInit();
+	// mlsInfo.tableSorterInit();
 };
 
 mlsInfo.tableSorterInit = function(){

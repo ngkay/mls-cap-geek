@@ -483,3 +483,124 @@ th, td {
 	font-size:12px;
 	transition: all .25s;
 }
+
+//BLOG PAGE
+
+article.post-loop{
+	margin:20px;
+}
+
+section.entry-content{
+	display:flex;
+	background:white;
+	border:2px solid $yellow;
+	&:hover figcaption{
+		background:rgba(255,199,34, 0.5);
+	}
+
+
+	.featured-img{
+		width:calc(300px);
+		height:300px;
+		position:relative;
+
+		.triangle{
+			border:20px solid white;
+			height:0;
+			width:0;
+			border-top:20px solid transparent;
+			border-left:20px solid transparent;
+			border-bottom:20px solid transparent;
+			position:absolute;
+			top:130px;
+			right: 0;
+		}
+
+		figcaption{
+			position:absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			transition:all 0.5s ease;
+		}
+	}
+
+	aside.post-preview{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		margin:0 20px;
+		width:50%;
+		h6, 
+		p{
+			font-size:10px;
+			color:grey;
+			margin-bottom:10px;
+		}
+		
+		h2{
+			margin-bottom:10px;
+		}
+
+		.read-more{
+			color:grey;
+			background-color:yellow;
+			padding:3px 10px;
+			border:1px solid grey;
+			transition:all 0.5s ease;
+			font-size:10px;
+			&:hover{
+				background:grey;
+				color:yellow;
+				border:1px solid yellow;
+			}
+			&:focus{
+				background:grey;
+				color:yellow;
+				border:1px solid yellow;
+			}
+		}
+
+		.post-foot{
+			margin-top:10px;
+		}
+	}
+}
+
+//sidebar
+
+.blog-content{
+	display:flex
+}
+
+.posts{
+	width:66%;
+}
+
+.sidebar{
+	width:33%;
+	padding:20px;
+
+	#recent-comments-2,
+	#archives-2,
+	#categories-2{
+	// padding:15px;
+	color: #333;
+	border: 1px solid #DDD;
+	transition: all .25s;
+	margin-bottom:25px;
+	padding:15px;
+
+		h3 {
+			padding: 15px;
+		}
+
+		li {
+			font-size: 1.35rem;
+			padding: 5px 15px;
+		}
+	}
+}
+
+//SINGLE page
