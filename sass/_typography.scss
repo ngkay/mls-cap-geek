@@ -3,13 +3,13 @@ html {
 	line-height: 1.2;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
 	margin: 0;
 	font-family: 'Titillium Web', sans-serif;
 }
 
 h1 {
-	font-size: 6rem;
+	font-size: 5.5rem;
 	font-weight: 600;
 }
 
@@ -19,16 +19,25 @@ h2 {
 }
 
 h3 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	// margin-bottom: 10px;
 }
 
 h4 {
-	font-size: 1.4rem;
+	font-size: 2rem;
 }
 
-h5{
-	font-size:1.2rem;
+h5 {
+	font-size: 1.2rem;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.3rem;
+}
+
+td, th {
+	font-family: 'Open Sans', sans-serif;
 }
 
 p{
@@ -36,10 +45,12 @@ p{
 }
 
 a {
-	color: #BA209B;
+	color: #666;
 	text-decoration: none;
+	transition: all .2s;
+
 	&:hover {
-		color: #D424B1;
+		color: $yellow;
 	}
 }
 
@@ -64,12 +75,6 @@ dt {
 dd {
 	padding: 10px;
 	margin-left: 10px;
-}
-
-/*lists*/
-
-ul li, ol li {
-	padding: 3px;
 }
 
 /*PRE*/

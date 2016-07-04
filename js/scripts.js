@@ -27,6 +27,9 @@ mlsInfo.numberWithCommas = function(x){
 //initial function
 mlsInfo.init = function(){
 
+	$('.landing h1').css({'visibility': 'visible', 'opacity': 1});
+	$('.landing').delay(1600).fadeOut(1000);
+	$('.logo').delay(2600).css({'visibility': 'visible', 'opacity': 1});
 	//add function that will listen to changes on the form.
 	mlsInfo.getData();
 };
@@ -69,7 +72,6 @@ mlsInfo.getData = function(){
 
 //function that sorts teams from the player objects
 mlsInfo.getTeams = function(){
-
 	//get team information from every player object
 	for(var i = 0; i < mlsInfo.playersObject.length; i++){
 		mlsInfo.teamsDuplicates.push(mlsInfo.playersObject[i].Club);
@@ -86,6 +88,7 @@ mlsInfo.getTeams = function(){
 
 	//calls a function that will populate the select field
 	// mlsInfo.populateSelect();
+	$('.hero-team-select').css({'visibility': 'visible', 'opacity': 1});
 	mlsInfo.teamSelect();
 
 	//call a function that will sort players by teams
@@ -112,41 +115,41 @@ mlsInfo.teamArrays = function(){
 	mlsInfo.sortTeamsStanding();
 }
 
-//function that populate select fields
-mlsInfo.populateSelect = function(){
-	//using jQuery, populate automatically the select field
-	for(var i = 0; i < mlsInfo.teams.length; i++){
-		$('#teamSelect').append('<option value"' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
-	};
-	//calls a function that will listen to any changes in to the select field
-	mlsInfo.fieldChange();
-};
+// //function that populate select fields
+// mlsInfo.populateSelect = function(){
+// 	//using jQuery, populate automatically the select field
+// 	for(var i = 0; i < mlsInfo.teams.length; i++){
+// 		$('#teamSelect').append('<option value"' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
+// 	};
+// 	//calls a function that will listen to any changes in to the select field
+// 	mlsInfo.fieldChange();
+// };
 
-//function that listens to changes in the select field and retrieves
-//the selected value
-//then searches the playersSorted array and spit back
-//only the team array related to the user's selection
-mlsInfo.fieldChange = function(){
-	$('#teamSelect').on('change', function(){
-		var userSelection = $('#teamSelect').val();
-		// console.log(userSelection);
-		var teamSelected = mlsInfo.playersSorted[userSelection];
-		// console.log(mlsInfo.playersSorted[userSelection]);
-		if(userSelection !== 'Select Team'){
-			$('#playersTable').empty();
-			$('#teamsTable').empty();
+// //function that listens to changes in the select field and retrieves
+// //the selected value
+// //then searches the playersSorted array and spit back
+// //only the team array related to the user's selection
+// mlsInfo.fieldChange = function(){
+// 	$('#teamSelect').on('change', function(){
+// 		var userSelection = $('#teamSelect').val();
+// 		// console.log(userSelection);
+// 		var teamSelected = mlsInfo.playersSorted[userSelection];
+// 		// console.log(mlsInfo.playersSorted[userSelection]);
+// 		if(userSelection !== 'Select Team'){
+// 			$('#playersTable').empty();
+// 			$('#teamsTable').empty();
 
-			//function that sorts the team players into descending order of salary cap hit
-			teamSelected.sort(function(a, b) {
-				// console.log('works')
-				return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
-			});
+// 			//function that sorts the team players into descending order of salary cap hit
+// 			teamSelected.sort(function(a, b) {
+// 				// console.log('works')
+// 				return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
+// 			});
 
-			mlsInfo.printInfo(teamSelected);
-			mlsInfo.printTeamNumbers(teamSelected);
-		}
-	});
-};
+// 			mlsInfo.printInfo(teamSelected);
+// 			mlsInfo.printTeamNumbers(teamSelected);
+// 		}
+// 	});
+// };
 
 //function that listens to change in the hero team select field
 mlsInfo.teamSelect = function(){
@@ -159,6 +162,7 @@ mlsInfo.teamSelect = function(){
 
 		mlsInfo.printInfo(teamSelected);
 		mlsInfo.printTeamNumbers(teamSelected, userSelection);
+		$('html, body').scrollTop(0);
 		$('.hero-header').slideUp(800);
 	});
 };
@@ -174,7 +178,7 @@ mlsInfo.printInfo = function(teamSelected){
 
 	console.log(teamSelected)
 
-	$('#playersTable tbody').empty();
+	$('#playersTable').empty().hide();
 
 	var dpIcon = "<div class='dp-icon'>DP</div>";
 	var yDpIcon = "<div class='dp-icon'>YDP</div>";
@@ -211,6 +215,7 @@ mlsInfo.printInfo = function(teamSelected){
 		$('#playersTable').append(playersRow);
 	};
 
+	$('#playersTable').fadeIn(600);
 	mlsInfo.tableSorterInit();
 };
 
@@ -223,7 +228,7 @@ mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
 
 	// console.log(teamSelected);
 
-	$('#teamsTable').empty();
+	$('.team-info, .main-team-stats').hide();
 
 	teamSelected.sort(function(a, b){
 		return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
@@ -287,7 +292,7 @@ mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
 	var teamEmblem = $('<img>').attr('src', mlsInfo.selectedTeamLogo);
 	$('.team-emblem').empty().append(teamEmblem);
 
-	// $('.team-info-screen').slideDown(800);
+	$('.team-info, .main-team-stats').fadeIn(800);
 
 	// var salaryMassLabel = $('<td>').append('Top 17 Salary Mass');
 	// var salaryCapLabel = $('<td>').append('Salary Cap (2016)');
@@ -348,11 +353,11 @@ mlsInfo.sortTeamsStanding = function(){
 };
 
 mlsInfo.printTeamsStanding = function(){
-	$('#teamsStandingTable').empty();
+	$('#teamsStandingTable').empty().hide();
 
 	var teamLabel = $('<td>').append('Team');
 	// var totalCapSalaryMassLabel = $('<td>').append('Salary Cap Hit');
-	var totalSalaryMassLabel = $('<td>').append('Total Team Salary');
+	var totalSalaryMassLabel = $('<td>').append('Team Salary');
 
 	var salaryCapRowLabel = $('<tr>').append(teamLabel, totalSalaryMassLabel);
 	$('#teamsStandingTable').append(salaryCapRowLabel);
@@ -366,6 +371,9 @@ mlsInfo.printTeamsStanding = function(){
 		var salaryCapRowTeam = $('<tr>').append(teamName, totalSalaryMassTeam).addClass('teamStandingLink').attr('id', teamClass);
 		$('#teamsStandingTable').append(salaryCapRowTeam);
 	};
+
+	$('#teamsStandingTable').fadeIn(600);
+
 	mlsInfo.teamStandingLinkActivate();
 };
 
@@ -381,6 +389,10 @@ mlsInfo.teamStandingLinkActivate = function(){
 		mlsInfo.selectedTeamLogo = $('input[value=\"' + teamClicked + '\"] + label > img').attr('src')
 		mlsInfo.printInfo(teamSelected);
 		mlsInfo.printTeamNumbers(teamSelected, userSelection);
+
+		$('html, body').animate({
+			scrollTop: $('.team-info-screen').offset().top
+		}, 600);
 	});
 }
 
