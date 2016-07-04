@@ -53,6 +53,8 @@ function hackeryou_styles(){
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 
 	wp_enqueue_style('titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+
+	wp_enqueue_style('opensans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');

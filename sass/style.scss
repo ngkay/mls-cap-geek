@@ -11,7 +11,7 @@ $yellow: #ffe034;
 
 @import 'normalize';
 @import 'typography';
-@import 'navigation';
+// @import 'navigation';
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
@@ -27,9 +27,28 @@ html {
 }
 
 .wrapper {
-	width: 90%;
+	width: 95%;
 	max-width: 1080px;
 	margin: 0 auto;
+}
+
+.landing {
+	width: 100%;
+	height: 100vh;
+	background: #333;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 20;
+
+	h1 {
+		font-size: 10rem;
+		color: #FFF;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 1s;
+	}
 }
 
 .hero-header {
@@ -39,15 +58,22 @@ html {
 	position: fixed;
 	background-size: cover;
 	color: #FFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
 }
 
 .hero-team-select {
 	width: 100%;
-	margin: 50px 0;
+	// margin: 50px 0;
+	visibility: hidden;
+	opacity: 0;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
 	align-items: flex-start;
+	transition: all .8s;
 
 	input[type=radio] {
 		display: none;
@@ -57,6 +83,7 @@ html {
 .hero-team {
 	width: calc(100% / 7);
 	margin-bottom: 50px;
+	padding: 0 15px;
 	display: flex;
 	flex-flow: column nowrap;
 	text-align: center;
@@ -65,6 +92,20 @@ html {
 		height: 95px;
 		margin: 0 auto 10px;
 		display: block;
+	}
+
+	h3 {
+		transition: all .25s;
+	}
+
+	&:nth-child(n+12) {
+		margin-bottom: 0;
+	}
+
+	&:hover {
+		&.hero-team h3 {
+			color: $yellow;
+		}
 	}
 }
 
@@ -83,7 +124,7 @@ label {
 }
 
 .teams-nav {
-	height: 35px;
+	height: 70px;
 	background: #F5F5F5;
 
 	.wrapper {
@@ -92,22 +133,41 @@ label {
 		justify-content: space-between;
 		align-items: center;
 	}
+
+	a {
+		color: #333;
+
+		&:hover {
+			color: $yellow;
+		}
+	}
 }
 
-.nav-team-select {
-	height: 100%;
+.teams-nav-right {
+	height: 70px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.nav-team-select, .nav-main-nav {
+	height: 35px;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+}
 
+.nav-team-select {
 	input[type=radio] {
 		display: none;
 	}
 }
 
 .nav-team {
-	height: 26px;
-	margin-right: 8px;
+	height: 20px;
+	margin: 0 6px;
+	transition: all .15s;
 
 	img {
 		height: 100%;
@@ -116,6 +176,41 @@ label {
 
 	&:last-child {
 		margin-right: 0;
+	}
+
+	&:hover {
+		height: 25px;
+	}
+}
+
+.nav-main-nav {
+	ul {
+		height: 35px;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-flow: row nowrap;
+
+
+		li {
+			padding: 5px 10px;
+			display: inline-block;
+			transition: all .25s;
+
+			&:hover {
+				background: $yellow;
+			}
+		}
+
+		a {
+			font-family: 'Titillium Web', sans-serif;
+			font-size: 1.8rem;
+			text-transform: uppercase;
+
+			&:hover {
+				color: #333;
+			}
+		}
 	}
 }
 
@@ -178,50 +273,39 @@ label {
 
 .main{
 	display:flex;
+	justify-content: space-between;
 }
 
 .left{
-	width:70%;
-	padding:10px;
+	width:66%;
 }
 
 .right{
 	width:30%;
-	padding:10px;
 
 	.latestPosts,
 	.tagCloud{
-		margin-bottom:30px;
-		padding:10px;
-		box-shadow:5px 5px 5px #c1c1c1;
+		margin-bottom:25px;
+		padding:15px;
+		// box-shadow:5px 5px 5px #c1c1c1;
 	}
 
-	.latestPosts,
-	.teamStandingSidebar{
+	.latestPosts {
 		background:#363533;
 		color:white;
 
-		a{
-			color:yellow;
+		a {
+			color: $yellow;
+
+			&:hover {
+				color: #333;
+			}
 		}
 	}
 
 	.content-featured-post{
 		display:flex;
 		margin:10px 0;
-	}
-
-	h3{
-		font-size:2.5rem;
-	}
-
-	h4{
-		font-size:1.8rem;
-	}
-
-	h4,
-	h5{
-		margin:0px;
 	}
 
 	.featured-blog-post img{
@@ -254,26 +338,38 @@ label {
 	}
 
 	.teamStandingSidebar{
-		padding:10px;
-		box-shadow:5px 5px 5px #c1c1c1;
-	}
+		// padding:15px;
+		color: #333;
+		border: 1px solid #DDD;
+		transition: all .25s;
 
-	#teamsStandingTable{
-		margin-top:0px;
-		margin-bottom:0px;
-	}
-
-	tr{
-		&:hover{
-			background:#4A4947;
+		h3 {
+			padding: 15px;
 		}
 	}
 
-	td{
-		font-size: 14px;
-		padding:2px;
-		color:white;
+	#teamsStandingTable{
+		margin-top:10px;
+		margin-bottom:0px;
 	}
+
+	td {
+		font-size: 1.35rem;
+		padding: 5px 15px;
+	}
+
+	// tr{
+	// 	border-bottom: 1px solid #666;
+	// 	&:hover{
+	// 		background:#4A4947;
+	// 	}
+	// }
+
+	// td{
+	// 	font-size: 1.35rem;
+	// 	padding:5px;
+	// 	color:white;
+	// }
 }
 
 .team-cap-hit,
@@ -289,13 +385,12 @@ label {
 .team-cap-hit-info,
 .team-cap-space-info,
 .team-dps-info{
-	position:relative;
-	background:$yellow;
-	border-radius:50%;
-	padding:2px 8px;
-	color:#000;
-	&:hover:after{
-		display:block;
+	position: relative;
+	color: $yellow;
+
+	&:hover:after {
+		visibility: visible;
+		opacity: 1;
 	}
 }
 
@@ -303,16 +398,19 @@ label {
 .team-cap-space-info:after,
 .team-dps-info:after{
 	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
-	display:none;
+	visibility: hidden;
+	opacity: 0;
 	position:absolute;
 	left: -125px;
 	top: -160px;
-	width:150px;
-	background:#666;
-	padding:5px;
+	width:200px;
+	background: rgba(50,50,50,.85);
+	padding:15px;
 	text-align:left;
 	color:#fff;
-	font-weight:normal;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.3rem;
+	transition: all .25s;
 }
 
 .team-cap-space {
@@ -342,12 +440,16 @@ tr {
 	&:first-child {
 		font-weight: bold;
 	}
+
+	&:last-child {
+		border-bottom: none;
+	}
 }
 
 th, td {
 	height: 40px;
 	padding: 15px;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	text-align: left;
 	vertical-align: center;
 }
@@ -361,20 +463,23 @@ th, td {
 	position: relative;
 	top: -2px;
 	&:hover:after{
-		display:block
+		visibility: visible;
+		opacity: 1;
 	}
 }
 
 .dp-icon:after{
 	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
-	display:none;
+	visibility: hidden;
+	opacity: 0;
 	position:absolute;
 	left: -125px;
 	top: -140px;
-	width:150px;
-	background:#666;
-	padding:5px;
+	width:200px;
+	background: rgba(50,50,50,.85);
+	padding:15px;
 	text-align:left;
 	color:#fff;
 	font-size:12px;
+	transition: all .25s;
 }

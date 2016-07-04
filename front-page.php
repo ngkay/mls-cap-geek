@@ -12,15 +12,18 @@
 
 
 <body <?php body_class(); ?>>
-<header class="hero-header" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>); background-size: cover; display:none;">
+<header class="landing">
+	<h1>Major Soccer Geeks</h1>
+</header>
+<header class="hero-header" style="background: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url(<?php $heroBg = get_field('hero_bg'); echo $heroBg['url']; ?>) no-repeat center center; background-size: cover;">
 	<div class="wrapper">
-		<nav class="hero-nav">
+		<!-- <nav class="hero-nav">
 			<div class="logo">
 				<h1><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a></h1>
 			</div>
-		</nav>
+		</nav> -->
 		<form>
 			<fieldset id="hero-team-select">
 				<div class="hero-team-select">
@@ -47,24 +50,32 @@
 	<nav class="teams-nav">
 		<div class="wrapper">
 			<div class="site-name">
-				<h3><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+				<h2><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
-				</a></h3>
+				</a></h2>
 			</div>
-			<div class="nav-team-select">
-				<?php if(have_rows('logos')): ?>
-					<?php while(have_rows('logos')):the_row(); 
-						$teamLogo = get_sub_field('logo_img');
-						$teamName = get_sub_field('team_name');
-					?>
-					<div class="nav-team">
-						<input type="radio" name="team" id="<?php echo $teamName; ?>" value="<?php echo $teamName; ?>">
-						<label for="<?php echo $teamName; ?>">
-							<img src="<?php echo $teamLogo['url']; ?>" alt="<?php echo $teamName; ?>">
-						</label>
-					</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
+			<div class="teams-nav-right">
+				<div class="nav-team-select">
+					<?php if(have_rows('logos')): ?>
+						<?php while(have_rows('logos')):the_row(); 
+							$teamLogo = get_sub_field('logo_img');
+							$teamName = get_sub_field('team_name');
+						?>
+						<div class="nav-team">
+							<input type="radio" name="team" id="<?php echo $teamName; ?>" value="<?php echo $teamName; ?>">
+							<label for="<?php echo $teamName; ?>">
+								<img src="<?php echo $teamLogo['url']; ?>" alt="<?php echo $teamName; ?>">
+							</label>
+						</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+				<div class="nav-main-nav">
+					<?php wp_nav_menu( array(
+						'container' => false,
+						'theme_location' => 'primary'
+					)); ?>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -77,21 +88,21 @@
 					<h1>Toronto FC</h1>
 				</div>
 				<div class="team-total-salary">
-					<h3>Total Team Salary</h3>
+					<h4>Total Team Salary</h4>
 					<h2>$1,234,567</h2>
 				</div>
 			</div>
 			<div class="main-team-stats">
 				<div class="team-cap-hit">
-					<h3>Salary Cap Hit<sup><i class="fa fa-info team-cap-hit-info" aria-hidden="true"></i></sup></h3>
+					<h4>Salary Cap Hit<sup><i class="fa fa-info-circle team-cap-hit-info" aria-hidden="true"></i></sup></h4>
 					<h2>$1,234,567</h2>
 				</div>
 				<div class="team-cap-space">
-					<h3>Salary Cap Space<sup><i class="fa fa-info team-cap-space-info" aria-hidden="true"></i></sup></h3>
+					<h4>Salary Cap Space<sup><i class="fa fa-info-circle team-cap-space-info" aria-hidden="true"></i></sup></h4>
 					<h2>$123,456</h2>
 				</div>
 				<div class="team-dps">
-					<h3>Designated Players<sup><i class="fa fa-info team-dps-info" aria-hidden="true"></i></sup></h3>
+					<h4>Designated Players<sup><i class="fa fa-info-circle team-dps-info" aria-hidden="true"></i></sup></h4>
 					<h2>3</h2>
 				</div>
 			</div>
@@ -131,14 +142,14 @@
 					<?php endwhile; ?><?php wp_reset_query(); /*4*/ ?>
 					<?php endif; ?>
 				</div>
-				<div class="tagCloud">
+				<!-- <div class="tagCloud">
 					<h3>Tags</h3>
 					<div class="tags">
 						<?php wp_tag_cloud('smallest=12&largest=12') ?>
 					</div>
-				</div>
+				</div> -->
 				<div class="teamStandingSidebar">
-					<h3>Team Standing</h3>
+					<h3>Team Standings</h3>
 					<table id='teamsStandingTable'>
 					</table>
 				</div>
