@@ -12,8 +12,12 @@
 	justify-content: space-between;
 }
 
-.footer-left, .footer-right {
-	width: 48%;
+.footer-left {
+	width: 58%;
+}
+
+.footer-right {
+	width: 40%;
 }
 
 .footer-tweet-title {
@@ -63,7 +67,7 @@
 			text-transform: uppercase;
 
 			&:hover {
-				color: #333;
+				color: #FFF;
 			}
 		}
 	}

@@ -1,0 +1,50 @@
+@media (max-width: 1024px) {
+	.hero-team {
+		width: calc(100% / 6);
+		margin-bottom: 30px;
+
+		img {
+			height: 80px;
+		}
+
+		h3 {
+			font-size: 2rem;
+		}
+
+		&:nth-child(n+12){
+			margin-bottom: 30px;
+		}
+
+		&:nth-child(n+18){
+			margin-bottom: 0;
+		}
+	}
+
+	.site-name {
+		h2 {
+			font-size: 3rem;
+		}
+	}
+
+	.left {
+		width: 67%;
+	}
+
+	td, th {
+		padding: 10px;
+	}
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+
+@media (max-width: 550px) {
+}
+
+@media (max-width: 380px) {
+}
