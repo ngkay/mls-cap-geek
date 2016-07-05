@@ -215,11 +215,7 @@ mlsInfo.printInfo = function(teamSelected){
 		$('#playersTable').append(playersRow);
 	};
 
-<<<<<<< HEAD
-	$('#playersTable').fadeIn(600);
-=======
 	$('#playersTable tbody').fadeIn(600);
->>>>>>> f388ec33b87e8805c68c863ede3708a19163c3d5
 	// mlsInfo.tableSorterInit();
 };
 
