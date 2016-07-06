@@ -608,4 +608,108 @@ section.entry-content{
 	}
 }
 
+//GENERAL STYLING
+
+.pageTag{
+	text-align:center;
+}
+
+.navOther{
+	background:#ffe034;
+	height:150px;
+	margin-bottom:40px;
+}
+
+.headerOther{
+
+	a{
+	color:white;
+	}
+}
+
+.navBarOther{
+
+	ul li{
+		&:hover{
+			background:transparent;
+		}
+	}
+
+	ul a{
+	color:white;
+	&:hover{
+		color:#ffe034;
+	}
+	}
+}
+
 //SINGLE page
+
+.individual-post{
+	margin:20px;
+
+	.featured-img{
+		width:100%;
+		height:300px;
+	}
+
+	.post-information{
+		display:flex;
+		justify-content:flex-start;
+		align-items:center;
+		height:30px;
+		color:white;
+		background:linear-gradient(125deg, grey 97%, rgba(0,0,0,0) 97%, rgba(0,0,0,0) 100%);
+
+		h6{
+			margin:0 10px;
+			// line-height:100px;
+		}
+
+		i{
+			margin:0 10px;
+		}
+	}
+
+	h6{
+		margin:10px 0;
+		line-height:20px;
+	}
+
+	h2{
+		margin:20px 0;
+	}
+
+	.entry-content{
+		margin-bottom:20px;
+	}
+
+	.entry-utility{
+		margin-bottom:20px;
+	}
+
+	#submit{
+
+			height:30px;
+			width:120px;
+			background:yellow;
+			font-weight:bold;
+			border:1px solid grey;
+			transition:all 0.5s ease;
+			margin-top:20px;
+			&:hover{
+				background:grey;
+				color:yellow;
+				border:1px solid yellow;
+			}
+			&:focus{
+				background:grey;
+				color:yellow;
+				border:1px solid yellow;
+			}
+
+			i{
+				margin-left:20px;
+			}
+		}
+}
