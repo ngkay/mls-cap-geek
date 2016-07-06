@@ -1,9 +1,17 @@
 .main-footer {
 	clear: both;
 	background:#333;
-	padding:50px 0 40px 0;
+	padding:50px 0;
 	margin-top: 25px;
 	color:white;
+
+	a {
+		color: $yellow;
+
+		&:hover {
+			color: #666;
+		}
+	}
 }
 
 .footer-body{
@@ -17,7 +25,7 @@
 }
 
 .footer-right {
-	width: 40%;
+	width: 38%;
 }
 
 .footer-tweet-title {
@@ -26,6 +34,10 @@
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
+
+	h4 {
+		text-align: right;
+	}
 }
 
 .bottom-footer {

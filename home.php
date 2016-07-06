@@ -19,22 +19,7 @@
 				<?php bloginfo( 'name' ); ?>
 			</a></h2>
 		</div>
-		<div class="teams-nav-right">
-			<div class="nav-team-select">
-				<?php if(have_rows('logos')): ?>
-					<?php while(have_rows('logos')):the_row(); 
-						$teamLogo = get_sub_field('logo_img');
-						$teamName = get_sub_field('team_name');
-					?>
-					<div class="nav-team">
-						<input type="radio" name="team" id="<?php echo $teamName; ?>" value="<?php echo $teamName; ?>">
-						<label for="<?php echo $teamName; ?>">
-							<img src="<?php echo $teamLogo['url']; ?>" alt="<?php echo $teamName; ?>">
-						</label>
-					</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-			</div>
+		<div class="home-nav-right">
 			<div class="nav-main-nav">
 				<?php wp_nav_menu( array(
 					'container' => false,
@@ -44,7 +29,6 @@
 		</div>
 	</div>
 </nav>
-
 <div class="main">
 	<div class="wrapper">
 		<div class="blog-content">

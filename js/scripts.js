@@ -27,7 +27,7 @@ mlsInfo.numberWithCommas = function(x){
 //initial function
 mlsInfo.init = function(){
 
-	$('.landing h1').css({'color': '#FFF'});
+	$('.landing h1').css({'visibility': 'visible', 'opacity': 1});
 	$('.landing').delay(1600).fadeOut(1000);
 	$('.logo').delay(2600).css({'visibility': 'visible', 'opacity': 1});
 	//add function that will listen to changes on the form.
@@ -163,7 +163,7 @@ mlsInfo.teamSelect = function(){
 		mlsInfo.printInfo(teamSelected);
 		mlsInfo.printTeamNumbers(teamSelected, userSelection);
 		$('html, body').scrollTop(0);
-		$('.hero-header').slideUp(800);
+		$('.hero-header').slideUp(1000);
 	});
 };
 
