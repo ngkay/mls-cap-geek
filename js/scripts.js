@@ -163,7 +163,7 @@ mlsInfo.teamSelect = function(){
 		mlsInfo.printInfo(teamSelected);
 		mlsInfo.printTeamNumbers(teamSelected, userSelection);
 		$('html, body').scrollTop(0);
-		$('.hero-header').slideUp(800);
+		$('.hero-header').slideUp(1000);
 	});
 };
 

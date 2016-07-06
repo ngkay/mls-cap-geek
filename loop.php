@@ -24,20 +24,20 @@
 				<aside class="post-preview">
 					<h6><?php the_time('F j, Y');?></h6>
 					<h2 class="entry-title">
-		        		<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
-		          			<?php the_title(); ?>
-		        		</a>
-		      		</h2>
+						<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+							<?php the_title(); ?>
+						</a>
+					</h2>
 					<?php the_excerpt(); ?>
 					<?php wp_link_pages( array(
-	          			'before' => '<div class="page-link"> Pages:',
-	          			'after' => '</div>'
-	      			  )); ?>
-	      			<?php $post_link = get_permalink($post)?>
-	      			<div class="post-foot">
-	      				<p><?php the_tags(); ?></p>
-	      			</div>
-	      		</aside>
+						'before' => '<div class="page-link"> Pages:',
+						'after' => '</div>'
+					  )); ?>
+					<?php $post_link = get_permalink($post)?>
+					<div class="post-foot">
+						<p><?php the_tags(); ?></p>
+					</div>
+				</aside>
 
 		</article><!-- #post-## -->
 

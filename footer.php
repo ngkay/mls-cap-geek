@@ -8,11 +8,12 @@
 			<div class="footer-right">
 				<div class="footer-tweet-title">
 					<h3>Latest Tweets</h3>
-					<h4>Follow us <a href="https://twitter.com/majorsoccergeek" target="_blank">@majorsoccergeek</a></h4>
+					<h4>Follow us <a href="https://twitter.com/majorsoccergeek" target="_blank">@MajorSoccerGeek</a></h4>
 				</div>
-
-				<a class="twitter-timeline" href="https://twitter.com/majorsoccergeek">Tweets by majorsoccergeek</a>
-				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<div class="footer-twitter">
+					<a class="twitter-timeline" href="https://twitter.com/majorsoccergeek">Tweets by majorsoccergeek</a>
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
 <!-- 
 				<a class="twitter-timeline" href="https://twitter.com/majorsoccergeek" data-widget-id="739571834107088897">Tweets de @majorsoccergeek</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
