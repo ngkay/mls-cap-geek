@@ -136,7 +136,7 @@
 								<div class="content-featured-post">
 									<?php $image = get_field('featured_img');?>
 									<!-- <pre><?php //print_r($image);?></pre> -->
-									<img src="<?php echo $image['sizes']['full'] ?>">
+									<img src="<?php echo $image['sizes']['square'] ?>">
 									<!-- function that only echos the post's first sentence -->
 									<div class="blog-post-info">
 										<?php the_date('F j, Y', '<h5>', '</h5>'); ?>
