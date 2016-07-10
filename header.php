@@ -8,7 +8,8 @@
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
   <!-- stylesheets should be enqueued in functions.php -->
   <?php wp_head(); ?>
-</head>
+<!--   <link rel="icon" type="image/png" href="images/favicon-soccer-ball-o.png">
+ --></head>
 
 <body <?php body_class(); ?>>
 

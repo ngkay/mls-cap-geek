@@ -178,7 +178,7 @@
 		}
 	}
 
-	.selectDiv{
+	.selectDiv:not(.titleSelectDiv){
 		display:block;
 	}
 
@@ -308,6 +308,14 @@
 	.team-name{
 		flex-direction:column;
 		text-align:center;
+	}
+
+	#hero-team-select{
+		display:none;
+	}
+
+	.titleSelectDiv{
+		display:block;
 	}
 }
 

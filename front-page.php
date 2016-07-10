@@ -8,7 +8,8 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!-- stylesheets should be enqueued in functions.php -->
 	<?php wp_head(); ?>
-</head>
+<!-- 	<link rel="icon" type="image/png" href="images/favicon-soccer-ball-o.png">
+ --></head>
 
 
 <body <?php body_class(); ?>>
@@ -24,6 +25,7 @@
 				</a></h1>
 			</div>
 		</nav> -->
+		<h2 class='hero-header-title'>Select a team</h2>
 		<form>
 			<fieldset id="hero-team-select">
 				<div class="hero-team-select">
@@ -44,6 +46,11 @@
 				</div>
 			</fieldset>
 		</form>
+		<div class="selectDiv titleSelectDiv">
+			<select id="teamSelect-title">
+				<option value="Select Team">Select Team</option>
+			</select>
+		</div>
 	</div>
 </header><!--/.header-->
 <div class="team-info-screen">
@@ -145,7 +152,7 @@
 									<img src="<?php echo $image['sizes']['square'] ?>">
 									<!-- function that only echos the post's first sentence -->
 									<div class="blog-post-info">
-										<?php the_date('F j, Y', '<h5>', '</h5>'); ?>
+										<h5><?php echo get_the_date('F j, Y'); ?></h5>
 										<h4 class="entry-title">
 											<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
 												<?php the_title(); ?>
