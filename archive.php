@@ -1,12 +1,10 @@
 <?php get_header(); ?>
 
 <div class="main">
-  <div class="container">
-    <div class="content">
-
+  <div class="wrapper">
       <?php if ( have_posts() ) the_post(); ?>
 
-      <h1>
+      <h3 class='pageTag'>
         <?php if ( is_day() ) : ?>
           Daily Archives: <?php the_date(); ?>
         <?php elseif ( is_month() ) : ?>
@@ -16,7 +14,10 @@
         <?php else : ?>
           Blog Archives
         <?php endif; ?>
-      </h1>
+      </h3>
+      <div class="blog-content">
+       <div class="posts">
+
 
       <?php
     	/* Since we called the_post() above, we need to
@@ -35,6 +36,7 @@
     </div><!--/content-->
 
     <?php get_sidebar(); ?>
+      </div>
 
   </div> <!-- /.container -->
 </div> <!-- /.main -->

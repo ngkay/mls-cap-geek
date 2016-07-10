@@ -43,6 +43,7 @@ html {
 	align-items: center;
 	text-align: center;
 	z-index: 20;
+	display:none;
 
 	h1 {
 		font-size: 10rem;
@@ -64,6 +65,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	z-index: 10;
+	display:none;
 
 	.wrapper {
 		width: 98%;
@@ -129,6 +131,32 @@ label {
 
 .team-info-screen {
 	// height: 0;
+}
+
+.selectDiv{
+	display:none;
+	width: 240px;
+	height: 34px;
+	overflow: hidden;
+	background: url('images/down-arrow.svg') no-repeat right #ddd;
+	background-size:20px;
+	background-position:95%;
+	border: 1px solid #333;
+	border-radius:2px;
+
+	select{
+		background: transparent;
+		padding: 5px;
+		width:100%;
+		font-size: 16px;
+		line-height: 1;
+		border: 0;
+		border-radius: 0;
+		height: 34px;
+		-webkit-appearance: none;
+		padding:5px;
+		padding-left:10px;
+	}
 }
 
 .teams-nav {
@@ -290,9 +318,67 @@ label {
 
 .left{
 	width:66%;
+
+	.detailElements{
+		display:none;
+		margin:20px 0;
+
+		summary{
+		  background:#333;
+		  color:yellow;
+		  border-radius:2px;
+		  font-size:18px;
+		}
+
+		summary{
+			padding:10px;
+
+			.dp-icon{
+				display:inline-block;
+				margin:0;
+				margin-left:5px;
+				color:#333;
+				text-align:center;
+			}
+		}
+
+		summary::-webkit-details-marker {
+		  display: none
+		}
+
+		summary:after {
+		  float: left; 
+		  content: "+";
+		  color:yellow;
+		  padding:0 10px;
+		}
+
+		details[open] summary:after {
+		  content:"-";
+		  color:white;
+		}
+
+		span{
+		  font-weight:bold;
+		}
+
+		p{
+		  border-bottom:1px dashed #333;
+		}
+	}
+
+	.detailElements:not(summary){
+	 border:1px solid #333;
+	 border-radius:2px;
+	}
+
+	.detailElements[open] summary{
+	  color:white;
+	}
 }
 
-.right{
+.right,
+.sidebar{
 	width:30%;
 
 	.latestPosts,
@@ -317,6 +403,12 @@ label {
 	.content-featured-post{
 		display:flex;
 		margin:10px 0;
+
+		a{
+			&:hover{
+				color:#ffe96f;
+			}
+		}
 	}
 
 	.featured-blog-post img{
@@ -405,15 +497,32 @@ label {
 	}
 }
 
+.team-cap-hit-info:after{
+	content:"This figure represents the aggregation of the team’s top 18 salaries, relatively to their impact on the salary cap (i.e. the team’s most expensive available game-day squad).";
+	position:absolute;
+	left: -167px;
+	top: -139px;
+}
+
+.team-cap-space-info:after{
+	content:"When this figure is positive, it means that the most expensive game-day squad possible for this team does not exceed the salary cap. If negative, this team would have to use Allocation money provided by the league to decrease the impact of its top players on the salary cap or include players with smaller salaries to complete their 18 players game-day squad.";
+	position:absolute;
+	left: -181px;
+	top: -238px;
+}
+
+.team-dps-info:after{
+	content:"Clubs can acquire up to 3 players whose total compensation and acquisition costs exceed the maximum budget charge. Designated Players have a fixed impact of $457,500 on the salary cap.";
+	position:absolute;
+	left: -195px;
+	top: -152px;
+}
+
 .team-cap-hit-info:after,
 .team-cap-space-info:after,
 .team-dps-info:after{
-	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
 	visibility: hidden;
 	opacity: 0;
-	position:absolute;
-	left: -125px;
-	top: -160px;
 	width:200px;
 	background: rgba(50,50,50,.85);
 	padding:15px;
@@ -422,6 +531,7 @@ label {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.3rem;
 	transition: all .25s;
+	line-height:17px;
 }
 
 .team-cap-space {
@@ -474,27 +584,28 @@ th {
 	font-size: 1rem;
 	position: relative;
 	top: -2px;
-	&:hover:after{
-		visibility: visible;
-		opacity: 1;
-	}
+	max-width:33.3px;
+	// &:hover:after{
+	// 	visibility: visible;
+	// 	opacity: 1;
+	// }
 }
 
-.dp-icon:after{
-	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
-	visibility: hidden;
-	opacity: 0;
-	position:absolute;
-	left: -125px;
-	top: -140px;
-	width:200px;
-	background: rgba(50,50,50,.85);
-	padding:15px;
-	text-align:left;
-	color:#fff;
-	font-size:12px;
-	transition: all .25s;
-}
+// .dp-icon:after{
+// 	content:"Heart attack never stopped old big bear. Mr. Zuckerkorn, you've been warned about touching. You said spanking. I am having a love affair with this ice cream sandwich. Hola, is Rosa still alive? No? Well this is not my day.";
+// 	visibility: hidden;
+// 	opacity: 0;
+// 	position:absolute;
+// 	left: -125px;
+// 	top: -140px;
+// 	width:200px;
+// 	background: rgba(50,50,50,.85);
+// 	padding:15px;
+// 	text-align:left;
+// 	color:#fff;
+// 	font-size:12px;
+// 	transition: all .25s;
+// }
 
 //BLOG PAGE
 
@@ -671,6 +782,10 @@ section.entry-content{
 		h6{
 			margin:0 10px;
 			// line-height:100px;
+
+			a{
+				color:white;
+			}
 		}
 
 		i{
