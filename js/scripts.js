@@ -87,7 +87,7 @@ mlsInfo.getTeams = function(){
 	});
 
 	//calls a function that will populate the select field
-	// mlsInfo.populateSelect();
+	mlsInfo.populateSelect();
 	$('.hero-team-select').css({'visibility': 'visible', 'opacity': 1});
 	mlsInfo.teamSelect();
 
@@ -115,41 +115,41 @@ mlsInfo.teamArrays = function(){
 	mlsInfo.sortTeamsStanding();
 }
 
-// //function that populate select fields
-// mlsInfo.populateSelect = function(){
-// 	//using jQuery, populate automatically the select field
-// 	for(var i = 0; i < mlsInfo.teams.length; i++){
-// 		$('#teamSelect').append('<option value"' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
-// 	};
-// 	//calls a function that will listen to any changes in to the select field
-// 	mlsInfo.fieldChange();
-// };
+//function that populate select fields
+mlsInfo.populateSelect = function(){
+	//using jQuery, populate automatically the select field
 
-// //function that listens to changes in the select field and retrieves
-// //the selected value
-// //then searches the playersSorted array and spit back
-// //only the team array related to the user's selection
-// mlsInfo.fieldChange = function(){
-// 	$('#teamSelect').on('change', function(){
-// 		var userSelection = $('#teamSelect').val();
-// 		// console.log(userSelection);
-// 		var teamSelected = mlsInfo.playersSorted[userSelection];
-// 		// console.log(mlsInfo.playersSorted[userSelection]);
-// 		if(userSelection !== 'Select Team'){
-// 			$('#playersTable').empty();
-// 			$('#teamsTable').empty();
+	for(var i = 0; i < mlsInfo.teams.length; i++){
+		$('#teamSelect').append('<option value="' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
+	};
+	//calls a function that will listen to any changes in to the select field
+	mlsInfo.fieldChange();
+};
 
-// 			//function that sorts the team players into descending order of salary cap hit
-// 			teamSelected.sort(function(a, b) {
-// 				// console.log('works')
-// 				return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
-// 			});
+//function that listens to changes in the select field and retrieves
+//the selected value
+//then searches the playersSorted array and spit back
+//only the team array related to the user's selection
+mlsInfo.fieldChange = function(){
+	$('#teamSelect').on('change', function(){
+		var userSelection = $('#teamSelect').val();
+		// console.log(userSelection);
+		var teamSelected = mlsInfo.playersSorted[userSelection];
+		// console.log(mlsInfo.playersSorted[userSelection]);
+		if(userSelection !== 'Select Team'){
 
-// 			mlsInfo.printInfo(teamSelected);
-// 			mlsInfo.printTeamNumbers(teamSelected);
-// 		}
-// 	});
-// };
+			//function that sorts the team players into descending order of salary cap hit
+			teamSelected.sort(function(a, b) {
+				// console.log('works')
+				return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
+			});
+
+			mlsInfo.selectedTeamLogo = $('input[value=\"' + userSelection + '\"] + label > img').attr('src')
+			mlsInfo.printInfo(teamSelected);
+			mlsInfo.printTeamNumbers(teamSelected, userSelection);
+		}
+	});
+};
 
 //function that listens to change in the hero team select field
 mlsInfo.teamSelect = function(){
@@ -179,6 +179,7 @@ mlsInfo.printInfo = function(teamSelected){
 	console.log(teamSelected)
 
 	$('#playersTable tbody').empty().hide();
+	$('.detailForMobile').empty().hide();
 
 	var dpIcon = "<div class='dp-icon'>DP</div>";
 	var yDpIcon = "<div class='dp-icon'>YDP</div>";
@@ -198,24 +199,44 @@ mlsInfo.printInfo = function(teamSelected){
 	for(var i = 0; i < teamSelected.length; i++){
 		// console.log('works')
 		var name = $('<td>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName);
+		var nameDetail = $('<summary>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName + ' (' + teamSelected[i].Pos + ')');
+
 		var position = $('<td>').append(teamSelected[i].Pos);
+
 		// var club = $('<td>').append(teamSelected[i].Club);
 		var baseSalary = $('<td>').append(teamSelected[i].BaseSalary);
+		var baseSalaryDetail = $('<p>').append('<span>Base Salary <span>' + teamSelected[i].BaseSalary);
+
 		var compensation = $('<td>').append(teamSelected[i].Compensation);
-		var salaryCapHit = $('<td>').append(teamSelected[i].SalaryCapHit);
+		var compensationDetail = $('<p>').append('<span>Compensation <span>' + teamSelected[i].Compensation);
+
+		if(teamSelected[i].SalaryCapHitNUM >= 457500){
+			var salaryCapHit = $('<td>').append("$457 500.00");
+			var salaryCapHitDetail = $('<p>').append('<span>Salary Cap Hit<span> $457 500.00');
+		}else{
+			var salaryCapHit = $('<td>').append(teamSelected[i].SalaryCapHit);
+			var salaryCapHitDetail = $('<p>').append('<span>Salary Cap Hit <span>' + teamSelected[i].SalaryCapHit);
+		}
 
 		if(teamSelected[i].Status === 'DP' && teamSelected[i].Young === 'Y'){
 			// var status = $('<td>').append('Young Designated Player');
 			name = $('<td>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName + yDpIcon);
+			nameDetail = $('<summary>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName+ ' (' + teamSelected[i].Pos + ')' + yDpIcon);
 		}else if(teamSelected[i].Status === 'DP'){
 			name = $('<td>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName + dpIcon);
+			nameDetail = $('<summary>').append(teamSelected[i].FirstName + " " + teamSelected[i].LastName+ ' (' + teamSelected[i].Pos + ')' + dpIcon);
 		}else{};
 
 		var playersRow = $('<tr>').append(name, position, baseSalary, compensation, salaryCapHit);
 		$('#playersTable').append(playersRow);
+
+		var detailElement = $('<details class="detailElements">').append(nameDetail, baseSalaryDetail, compensationDetail, salaryCapHitDetail);
+		$('.detailForMobile').append(detailElement);
 	};
 
 	$('#playersTable tbody').fadeIn(600);
+	$('.detailForMobile').fadeIn(600);
+	
 	// mlsInfo.tableSorterInit();
 };
 
@@ -235,7 +256,7 @@ mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
 	});
 
 	//variable that stores only the top 17 players (by salary cap hit)
-	var teamTop17 = teamSelected.slice(0, 17);
+	var teamTop17 = teamSelected.slice(0, 18);
 	console.log(teamTop17);
 
 	//values
@@ -250,7 +271,11 @@ mlsInfo.printTeamNumbers = function(teamSelected, userSelection){
 
 	//second for loop that sums the salary cap hit of the top 17 players
 	for(var i = 0; i < teamTop17.length; i++){
+		if(teamTop17[i].SalaryCapHitNUM >= 457500){
+		var salaryMassTop17 = salaryMassTop17 + parseInt(457500, 10);
+		}else{
 		var salaryMassTop17 = salaryMassTop17 + parseInt(teamTop17[i].SalaryCapHitNUM, 10);
+		}
 	}
 
 	//variable that calculates the amount of cap left

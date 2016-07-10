@@ -69,6 +69,11 @@
 						</div>
 						<?php endwhile; ?>
 					<?php endif; ?>
+					<div class="selectDiv">
+						<select id="teamSelect">
+							<option value="Select Team">Select Team</option>
+						</select>
+					</div>
 				</div>
 				<div class="nav-main-nav">
 					<?php wp_nav_menu( array(
@@ -123,14 +128,15 @@
 						</tr>
 					</thead>
 				</table>
+				<div class="detailForMobile"></div>
 			</div>
-			<div class="right">
+			<div class="right frontSideBar">
 				<div class="latestPosts">
 					<h3>Latest Blog Posts</h3>
 					<?php 
 					query_posts('posts_per_page=2');
 					if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-						<div class="post" id="post">
+						<div class="postFrontPage" id="post">
 							<article class="featured-blog-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 								<div class="content-featured-post">
@@ -155,7 +161,7 @@
 				<!-- <div class="tagCloud">
 					<h3>Tags</h3>
 					<div class="tags">
-						<?php wp_tag_cloud('smallest=12&largest=12') ?>
+						<?php //wp_tag_cloud('smallest=12&largest=12') ?>
 					</div>
 				</div> -->
 				<div class="teamStandingSidebar">
