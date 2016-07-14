@@ -507,7 +507,8 @@ label {
 	position: relative;
 	color: $yellow;
 
-	&:hover:after {
+	&:hover:after,
+	&:active:after {
 		visibility: visible;
 		opacity: 1;
 	}
