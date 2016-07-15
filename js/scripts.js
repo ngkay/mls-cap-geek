@@ -88,7 +88,7 @@ mlsInfo.getTeams = function(){
 
 	//calls a function that will populate the select field
 	mlsInfo.populateSelect();
-	$('.hero-team-select').css({'visibility': 'visible', 'opacity': 1});
+	$('.hero-team-select, .hero-header-title, .titleSelectDiv').css({'visibility': 'visible', 'opacity': 1});
 	mlsInfo.teamSelect();
 
 	//call a function that will sort players by teams
@@ -120,7 +120,7 @@ mlsInfo.populateSelect = function(){
 	//using jQuery, populate automatically the select field
 
 	for(var i = 0; i < mlsInfo.teams.length; i++){
-		$('#teamSelect').append('<option value="' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
+		$('#teamSelect, #teamSelect-title').append('<option value="' + mlsInfo.teams[i] + '">' + mlsInfo.teams[i] + '</option>');
 	};
 	//calls a function that will listen to any changes in to the select field
 	mlsInfo.fieldChange();
@@ -149,6 +149,28 @@ mlsInfo.fieldChange = function(){
 			mlsInfo.printTeamNumbers(teamSelected, userSelection);
 		}
 	});
+
+	$('#teamSelect-title').on('change', function(){
+		var userSelection = $('#teamSelect-title').val();
+		// console.log(userSelection);
+		var teamSelected = mlsInfo.playersSorted[userSelection];
+		// console.log(mlsInfo.playersSorted[userSelection]);
+		$('.hero-header').css('display', 'none');
+		if(userSelection !== 'Select Team'){
+
+			//function that sorts the team players into descending order of salary cap hit
+			teamSelected.sort(function(a, b) {
+				// console.log('works')
+				return parseFloat(b.SalaryCapHitNUM) - parseFloat(a.SalaryCapHitNUM);
+			});
+
+			mlsInfo.selectedTeamLogo = $('input[value=\"' + userSelection + '\"] + label > img').attr('src')
+			mlsInfo.printInfo(teamSelected);
+			mlsInfo.printTeamNumbers(teamSelected, userSelection);
+		}
+	});
+
+
 };
 
 //function that listens to change in the hero team select field

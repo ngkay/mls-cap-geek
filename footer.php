@@ -11,7 +11,7 @@
 					<h4>Follow us <a href="https://twitter.com/majorsoccergeek" target="_blank">@MajorSoccerGeek</a></h4>
 				</div>
 				<div class="footer-twitter">
-					<a class="twitter-timeline" href="https://twitter.com/majorsoccergeek">Tweets by majorsoccergeek</a>
+					<a class="twitter-timeline" href="https://twitter.com/majorsoccergeek" height="400px">Tweets by majorsoccergeek</a>
 					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
 <!-- 

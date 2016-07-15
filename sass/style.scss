@@ -43,7 +43,7 @@ html {
 	align-items: center;
 	text-align: center;
 	z-index: 20;
-	display:none;
+	// display:none;
 
 	h1 {
 		font-size: 10rem;
@@ -65,12 +65,19 @@ html {
 	justify-content: center;
 	align-items: center;
 	z-index: 10;
-	display:none;
+	// display:none;
 
 	.wrapper {
 		width: 98%;
 		max-width: 1920px;
 	}
+}
+
+.hero-header-title{
+	text-align:center;
+	margin-bottom:30px;
+	visibility: hidden;
+	opacity: 0;
 }
 
 .hero-team-select {
@@ -127,6 +134,13 @@ fieldset {
 
 label {
 	cursor: pointer;
+}
+
+.titleSelectDiv{
+	margin:0 auto;
+	display:none;
+	visibility: hidden;
+	opacity: 0;
 }
 
 .team-info-screen {
@@ -448,6 +462,8 @@ label {
 
 		h3 {
 			padding: 15px;
+			color:white;
+			background:#666;
 		}
 	}
 
@@ -491,7 +507,8 @@ label {
 	position: relative;
 	color: $yellow;
 
-	&:hover:after {
+	&:hover:after,
+	&:active:after {
 		visibility: visible;
 		opacity: 1;
 	}
@@ -657,13 +674,18 @@ section.entry-content{
 		width:50%;
 		h6, 
 		p{
-			font-size:10px;
+			font-size:14px;
 			color:grey;
 			margin-bottom:10px;
 		}
 		
+		p{
+			font-size:12px;
+		}
+
 		h2{
 			margin-bottom:10px;
+			font-size:20px;
 		}
 
 		.read-more{
@@ -713,15 +735,20 @@ section.entry-content{
 	border: 1px solid #DDD;
 	transition: all .25s;
 	margin-bottom:25px;
-	padding:15px;
 
 		h3 {
 			padding: 15px;
+			color:white;
+			background:#666;
 		}
 
 		li {
 			font-size: 1.35rem;
 			padding: 5px 15px;
+		}
+
+		ul{
+			padding:10px;
 		}
 	}
 }
@@ -769,6 +796,20 @@ section.entry-content{
 	.featured-img{
 		width:100%;
 		height:300px;
+		position:relative;
+
+		.copyright{
+			position:absolute;
+			bottom: 0;
+			right: 0;
+			background:rgba(0,0,0,.35);
+			color:white;
+			padding:5px 10px;
+
+			h6{
+			margin:0;
+			}
+		}
 	}
 
 	.post-information{
@@ -804,6 +845,10 @@ section.entry-content{
 
 	.entry-content{
 		margin-bottom:20px;
+
+		p{
+			font-size:1.4rem;
+		}
 	}
 
 	.entry-utility{

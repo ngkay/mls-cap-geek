@@ -18,17 +18,6 @@
           the_post();
       ?>
 
-
-      <?php
-      	// If a user has filled out their description, show a bio on their entries.
-      	if ( get_the_author_meta('description') ) : ?>
-
-          <h2>About <?php the_author(); ?> </h2>
-      		<?php echo get_avatar( get_the_author_meta('user_email'), 60); ?>
-      		<?php the_author_meta('description'); ?>
-
-        <?php endif; ?>
-
       	<?php
       		rewind_posts();
       		get_template_part('loop', 'author');
