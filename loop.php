@@ -19,8 +19,8 @@
 		<article class="post-loop" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<section class="entry-content">
 				<?php $image = get_field('featured_img');?>
-				<div class="featured-img" style="background:url(<?php echo $image['sizes']['large'] ?>); background-size:cover; background-position:center;">';
-				<div class="triangle"></div><figcaption id="featured-img"></figcaption></div>';
+				<div class="featured-img" style="background:url(<?php echo $image['sizes']['large'] ?>); background-size:cover; background-position:center;">
+				<div class="triangle"></div><figcaption id="featured-img"></figcaption></div>
 				<aside class="post-preview">
 					<h6><?php the_time('F j, Y');?></h6>
 					<h2 class="entry-title">

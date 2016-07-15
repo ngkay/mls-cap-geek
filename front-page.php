@@ -8,7 +8,8 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!-- stylesheets should be enqueued in functions.php -->
 	<?php wp_head(); ?>
-</head>
+<!-- 	<link rel="icon" type="image/png" href="images/favicon-soccer-ball-o.png">
+ --></head>
 
 
 <body <?php body_class(); ?>>
@@ -24,6 +25,7 @@
 				</a></h1>
 			</div>
 		</nav> -->
+		<h2 class='hero-header-title'>Select a team</h2>
 		<form>
 			<fieldset id="hero-team-select">
 				<div class="hero-team-select">
@@ -44,6 +46,11 @@
 				</div>
 			</fieldset>
 		</form>
+		<div class="selectDiv titleSelectDiv">
+			<select id="teamSelect-title">
+				<option value="Select Team">Select Team</option>
+			</select>
+		</div>
 	</div>
 </header><!--/.header-->
 <div class="team-info-screen">
@@ -69,6 +76,11 @@
 						</div>
 						<?php endwhile; ?>
 					<?php endif; ?>
+					<div class="selectDiv">
+						<select id="teamSelect">
+							<option value="Select Team">Select Team</option>
+						</select>
+					</div>
 				</div>
 				<div class="nav-main-nav">
 					<?php wp_nav_menu( array(
@@ -123,14 +135,15 @@
 						</tr>
 					</thead>
 				</table>
+				<div class="detailForMobile"></div>
 			</div>
-			<div class="right">
+			<div class="right frontSideBar">
 				<div class="latestPosts">
 					<h3>Latest Blog Posts</h3>
 					<?php 
 					query_posts('posts_per_page=2');
 					if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-						<div class="post" id="post">
+						<div class="postFrontPage" id="post">
 							<article class="featured-blog-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 								<div class="content-featured-post">
@@ -139,7 +152,7 @@
 									<img src="<?php echo $image['sizes']['square'] ?>">
 									<!-- function that only echos the post's first sentence -->
 									<div class="blog-post-info">
-										<?php the_date('F j, Y', '<h5>', '</h5>'); ?>
+										<h5><?php echo get_the_date('F j, Y'); ?></h5>
 										<h4 class="entry-title">
 											<a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
 												<?php the_title(); ?>
@@ -155,7 +168,7 @@
 				<!-- <div class="tagCloud">
 					<h3>Tags</h3>
 					<div class="tags">
-						<?php wp_tag_cloud('smallest=12&largest=12') ?>
+						<?php //wp_tag_cloud('smallest=12&largest=12') ?>
 					</div>
 				</div> -->
 				<div class="teamStandingSidebar">
